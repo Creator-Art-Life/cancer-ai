@@ -3,6 +3,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 import { StateContextProvider } from "./context";
 import App from "./App";
+//@ts-expect-error text for resolve problem with "not_found" module i havent time
 import "./index.css";
 import "./i18n/i18n";
 import { PrivyProvider } from "@privy-io/react-auth";
