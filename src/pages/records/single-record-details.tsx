@@ -149,6 +149,7 @@ function SingleRecordDetails() {
 
     // console.log(text);
     // console.log(parsedResponse);
+    //@ts-expect-error some text for vercel mg
     const updatedRecord = await updateRecord({
       documentID: state.id,
       kanbanRecords: text,
