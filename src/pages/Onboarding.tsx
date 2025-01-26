@@ -23,7 +23,7 @@ function Onboarding() {
       createdBy: user!.email!.address,
     };
 
-    console.log(userData);
+    // console.log(userData);
     const newUser = await createUser(userData);
     if (newUser) {
       navigate("/profile");

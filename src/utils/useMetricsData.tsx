@@ -27,7 +27,7 @@ export const useMetricsData = () => {
     if (user) {
       fetchUserByEmail(user?.email?.address!)
         .then(() => {
-          console.log(records);
+          // console.log(records);
           const totalFolders = records.length;
           let aiPersonalizedTreatment = 0;
           let totalScreenings = 0;

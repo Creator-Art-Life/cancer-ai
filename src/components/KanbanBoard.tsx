@@ -40,7 +40,7 @@ function KanbanBoard({ state }: any) {
   );
 
   return (
-    <div className="mt-5 min-h-screen w-72 text-white">
+    <div className="mt-5 min-h-[70vh] w-72 text-white">
       <DndContext
         sensors={sensors}
         onDragStart={onDragStart}

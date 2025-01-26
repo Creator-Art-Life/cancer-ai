@@ -39,7 +39,7 @@ function SingleRecordDetails() {
 
   const handleFileChange = (e: any) => {
     const file = e.target.files[0];
-    console.log("Selected file:", file);
+    // console.log("Selected file:", file);
     setFileType(file.type);
     setFilename(file.name);
     setFile(file);
@@ -147,13 +147,13 @@ function SingleRecordDetails() {
     const text = response.text();
     const parsedResponse = JSON.parse(text);
 
-    console.log(text);
-    console.log(parsedResponse);
+    // console.log(text);
+    // console.log(parsedResponse);
     const updatedRecord = await updateRecord({
       documentID: state.id,
       kanbanRecords: text,
     } as unknown as Record);
-    console.log(updatedRecord);
+    // console.log(updatedRecord);
     navigate("/screening-schedules", { state: parsedResponse });
     setIsProcessing(false);
   };

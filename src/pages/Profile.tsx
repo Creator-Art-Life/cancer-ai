@@ -8,28 +8,22 @@ import { useTranslation } from "react-i18next";
 import { CustomButton } from "@/components";
 import AuthComponent from "@/utils/AuthComponent";
 import { Calendar, LucideIcon, MapPin } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 function Profile() {
   const { t } = useTranslation();
   const { currentUser, fetchUserByEmail } = useStateContext();
   const { user } = usePrivy();
   const { authenticated, handleLoginLogout } = AuthComponent();
+  const navigate = useNavigate();
 
-  console.log("user:", user, "currentUser:", currentUser);
+  // console.log("user:", user, "currentUser:", currentUser);
 
   useEffect(() => {
     if (!currentUser) {
       fetchUserByEmail(user?.email?.address ?? "");
     }
   }); // [currentUser, fetchUserByEmail]
-
-  if (!currentUser) {
-    return (
-      <div className="flex h-screen items-center justify-center">
-        <div className="text-lg text-gray-500">Loading...</div>
-      </div>
-    );
-  }
 
   if (!user) {
     return (
@@ -42,6 +36,28 @@ function Profile() {
         </div>
         <div className="sm:text-xl text-sm text-gray-500 font-semibold">
           If the loading takes too long, please log in to your account.
+        </div>
+      </div>
+    );
+  }
+  if (!currentUser) {
+    return (
+      <div className="flex min-h-[70vh] flex-col items-center justify-center">
+        <div className="mb-4 flex items-center justify-center">
+          <div className="h-10 w-10 animate-spin rounded-full border-4 border-gray-300 border-t-blue-500"></div>
+        </div>
+        <div className="sm:text-4xl text-lg font-bold text-gray-700 mb-2">
+          Loading...
+        </div>
+        <div className="sm:text-2xl max-sm:text-xl ml-6  text-gray-500 font-semibold">
+          If the loading takes too long, you can{" "}
+          <span
+            className="font-semibold underline text-blue-500 cursor-pointer"
+            onClick={() => navigate("/onboarding")}
+          >
+            add
+          </span>{" "}
+          information about you
         </div>
       </div>
     );
@@ -133,3 +149,4 @@ const RowProfile = ({
 };
 
 export default Profile;
+1;
