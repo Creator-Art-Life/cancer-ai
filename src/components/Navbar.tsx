@@ -1,6 +1,6 @@
 import { CustomButton } from ".";
 import { menu, search, sun } from "../assets";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IconHeartHandshake } from "@tabler/icons-react";
 import { Link, useNavigate } from "react-router-dom";
 import { navlinks } from "../constants";
@@ -122,5 +122,48 @@ function Navbar() {
     </div>
   );
 }
+
+export const IconTheme = ({
+  styles,
+  imgUrl,
+}: {
+  styles: string;
+  imgUrl: string;
+}) => {
+  const [theme, setTheme] = useState(
+    () => localStorage.getItem("theme") || "light"
+  );
+
+  const toggleTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+
+    setTheme(newTheme);
+
+    try {
+      localStorage.setItem("theme", newTheme);
+      console.log("Theme saved to localStorage:", newTheme);
+    } catch (error) {
+      console.error("Failed to save theme to localStorage:", error);
+    }
+
+    document.documentElement.setAttribute("vite-ui-theme", newTheme);
+  };
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme") || "light";
+    setTheme(savedTheme);
+    document.documentElement.setAttribute("vite-ui-theme", savedTheme);
+    console.log("Initial theme set from localStorage:", savedTheme);
+  }, []);
+
+  return (
+    <div
+      className={`h-[48px] w-[48px] rounded-[10px] flex items-center justify-center ${styles}`}
+      onClick={toggleTheme}
+    >
+      <img src={imgUrl} alt="theme-icon" className="h-6 w-6" />
+    </div>
+  );
+};
 
 export default Navbar;
