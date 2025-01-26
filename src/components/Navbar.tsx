@@ -1,5 +1,5 @@
 import { CustomButton } from ".";
-import { menu, search } from "../assets";
+import { menu, search, sun } from "../assets";
 import { useState } from "react";
 import { IconHeartHandshake } from "@tabler/icons-react";
 import { Link, useNavigate } from "react-router-dom";
@@ -7,6 +7,7 @@ import { navlinks } from "../constants";
 import { ModeLanguage } from "@/i18n/ModeLanguage";
 import AuthComponent from "@/utils/AuthComponent";
 import { useTranslation } from "react-i18next";
+import { Icon } from "./Sidebar";
 
 function Navbar() {
   const navigate = useNavigate();
@@ -51,8 +52,13 @@ function Navbar() {
       </div>
 
       <div className="relative flex items-center justify-between sm:hidden">
-        <div className="flex h-[40px] w-[40px] cursor-pointer items-center justify-center rounded-[10px] bg-[#2c2f32]">
-          <IconHeartHandshake size={40} color="#1ec070" className="p-2" />
+        <div className="flex h-[40px] w-full cursor-pointer items-center justify-start gap-2">
+          <div className="flex h-[40px] w-[40px] items-center justify-center rounded-[10px] bg-[#2c2f32]">
+            <IconHeartHandshake size={40} color="#1ec070" className="p-2" />
+          </div>
+          <div className="flex h-[40px] w-[45px] items-center justify-center rounded-[10px] bg-[#2c2f32]">
+            <Icon styles="bg-[#1c1c24] shadow-secondary" imgUrl={sun} />
+          </div>
         </div>
         <img
           src={menu}
@@ -94,6 +100,22 @@ function Navbar() {
                 </p>
               </li>
             ))}
+            <li
+              key={"Login"}
+              className={`flex p-4 `}
+              // onClick={() => {
+              //   setIsActive(link.name);
+              //   setToggleDrawer(false);
+              //   navigate(link.link);
+              // }}
+            >
+              <CustomButton
+                btnType="button"
+                title={authenticated ? "Log Out" : "Log In"}
+                styles={authenticated ? "bg-[#1dc071]" : "bg-[#8c6dfd]"}
+                handleClick={handleLoginLogout}
+              />
+            </li>
           </ul>
         </div>
       </div>

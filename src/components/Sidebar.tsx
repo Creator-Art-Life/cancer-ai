@@ -15,7 +15,7 @@ interface IconProps {
   handleClick?: React.MouseEventHandler<HTMLElement>;
 }
 
-const Icon = ({
+export const Icon = ({
   styles,
   name,
   imgUrl,
