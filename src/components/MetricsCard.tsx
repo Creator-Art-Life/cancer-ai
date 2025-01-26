@@ -17,7 +17,7 @@ const MetricsCard = ({
   subtitle,
   value,
   icon: Icon,
-  progress,
+  // progress,
   onClick,
 }: any) => (
   <div className="flex flex-col rounded-xl border bg-white shadow-sm dark:border-neutral-800 dark:bg-[#13131a]">

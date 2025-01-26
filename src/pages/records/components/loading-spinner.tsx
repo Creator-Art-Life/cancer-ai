@@ -1,5 +1,3 @@
-import React from "react";
-
 const LoadingSpinner = ({ size = 8, color = "green-500" }) => {
   return (
     <svg

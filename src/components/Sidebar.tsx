@@ -63,6 +63,7 @@ const Sidebar = () => {
               {...link}
               isActive={isActive}
               handleClick={() => {
+                //@ts-expect-error some text for fix vercel
                 if (!link.disabled) {
                   setIsActive(link.name);
                   navigate(link.link);

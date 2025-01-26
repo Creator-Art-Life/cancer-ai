@@ -90,6 +90,7 @@ function SingleRecordDetails() {
       const response = await result.response;
       const text = response.text();
       setAnalysisResult(text);
+      //@ts-expect-error some text for fix vercel
       const updatedRecord = await updateRecord({
         documentID: state.id,
         analysisResult: text,

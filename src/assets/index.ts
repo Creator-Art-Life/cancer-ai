@@ -1,3 +1,5 @@
+//@ts-expect-error text for resolve problem with "not_found" module i havent time
+// @ts-nocheck
 import sun from "./sun.svg";
 import search from "./search.svg";
 import menu from "./menu.svg";

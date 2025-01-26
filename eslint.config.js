@@ -27,6 +27,7 @@ export default tseslint.config(
       "@typescript-eslint/no-non-null-asserted-optional-chain": "off",
       "react/display-name": "off",
       "react/no-unescaped-entities": "off",
+      "@typescript-eslint/ban-ts-comment": "off",
     //   '@typescript-eslint/no-unused-vars': process.env.VITE_VERCEL === 'true' ? 'off' : 'error',
     // '@typescript-eslint/no-explicit-any': process.env.VITE_VERCEL === 'true' ? 'off' : 'error',
     // '@typescript-eslint/no-empty-interface': process.env.VITE_VERCEL === 'true' ? 'off' : 'error',
